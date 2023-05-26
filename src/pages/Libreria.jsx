@@ -1,23 +1,27 @@
 import React,{ useState, useEffect} from 'react'
 import "../styles/libros.css";
-import LibreriaCard from "./LibroDetail"
+import LibreriaDetail from "./LibroDetail"
 import axios from "axios";
 
 export default function Libreria() {
 
     const [libros,setLibros] = useState([]);
 
-    useEffect(async () =>{
+    useEffect(() => {
 
-        try{
-            const res = await axios.get("http://localhost:8000/books/");
-            setLibros(res.data);
-
-        }catch(err){
-
-            console.error(err);
-            
+        const getBooks = async () => {
+            try{
+                const res = await axios.get("http://localhost:8000/books/");
+                setLibros(res.data);
+    
+            }catch(err){
+    
+                console.error(err);
+                
+            }
         }
+
+        getBooks()
 
         },[])
     
@@ -26,7 +30,7 @@ export default function Libreria() {
   return (
     <div classname="container">
         {libros.map((libro)=>(
-           <LibreriaCard
+           <LibreriaDetail
            name={libro.name}
            image={libro.image}
            isbn={libro.isbn}/>

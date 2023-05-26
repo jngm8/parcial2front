@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../styles/libros.css";
 
 export default function LibreriaCard({name,image,isbn}) {
+
+  const [showCard, setShowCard] = useState(false);
+
+  const handleClick = () => {
+    setShowCard(true);
+  };
   return (
     <div className="card">
       
@@ -10,6 +16,14 @@ export default function LibreriaCard({name,image,isbn}) {
       <h1 className="name">{name}</h1>
 
       <p className="isbn">{isbn}</p>
+
+      <button onClick={handleClick}></button>
+    {showCard && (
+        <div>
+          <h2>{name}</h2>
+          <p>{isbn}</p>
+        </div>
+      )}
 
     </div>
   )

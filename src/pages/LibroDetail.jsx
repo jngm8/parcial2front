@@ -6,14 +6,9 @@ export default function LibroDetail() {
 
     const [libro,setLibro] = useState([]);
 
-    const [showCard, setShowCard] = useState(false);
+    useEffect( () =>{
 
-    const handleClick = () => {
-      setShowCard(true);
-    };
-
-
-    useEffect(async () =>{
+      const getBooks = async () => {
 
         try{
             const res = await axios.get("http://localhost:8000/books/")
@@ -24,7 +19,11 @@ export default function LibroDetail() {
             console.error(err);
             
         }
+      }
 
+      getBooks();
+        
+ 
     },[])
 
 
@@ -34,13 +33,6 @@ export default function LibroDetail() {
 <img src={libro.img} alt="imagen" />
     {libro.name}
     {libro.isbn}
-    <button onClick={handleClick}></button>
-    {showCard && (
-        <div>
-          <h2>{libro.name}</h2>
-          <p>{libro.isbn}</p>
-        </div>
-      )}
     </div>
 
   )
