@@ -13,7 +13,7 @@ export default function LibreriaCard({name,image,isbn}) {
       
       <img src={image} alt="carta libro" className="imagen" />
 
-      <h1 className="name">{name}</h1>
+      <h5 className="name">{name}</h5>
 
       <p className="isbn">{isbn}</p>
 
