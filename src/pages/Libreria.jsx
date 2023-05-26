@@ -1,6 +1,6 @@
 import React,{ useState, useEffect} from 'react'
 import "../styles/libros.css";
-import LibreriaDetail from "./LibroDetail"
+import LibreriaCard from "../components/LibreriaCard"
 import axios from "axios";
 
 export default function Libreria() {
@@ -30,7 +30,7 @@ export default function Libreria() {
   return (
     <div classname="container">
         {libros.map((libro)=>(
-           <LibreriaDetail
+           <LibreriaCard
            name={libro.name}
            image={libro.image}
            isbn={libro.isbn}/>
