@@ -4,6 +4,8 @@ import Button from './Button';
 import LogoLibro from "../images/libros.png";
 import "../styles/Button.css";
 import Input from './Input';
+import { FormattedMessage } from 'react-intl';
+
 
 
 
@@ -37,7 +39,7 @@ export default function Login() {
     
           try {
             const datosEnviados = { user, password };
-            const response = await fetch(`${API_URL}/auth/login`, {
+            const response = await fetch(`${API_URL}/login`, {
               method: 'POST',
               body: JSON.stringify(datosEnviados),
               headers: {
@@ -72,31 +74,57 @@ export default function Login() {
           setErrors(errors);
         }
       };
+    
+      
+    let usuario = <FormattedMessage id='User'/>
+    let pass =  <FormattedMessage id='Password'/>
 
+    /* This is because the input format doesnt accept the normal format*/
+    if(usuario === "User")
+      usuario = "User"
+    else
+      usuario = "Usuario"
+
+      if(pass === "Passwrod")
+      pass = "Password"
+    else
+      pass = "Contraseña"
   return (
     <div>
-    <div className='container'>
+      <div className='container'>
+        <div className='container'>
+          <row>
+            <img src={LogoLibro} alt="Logo" className='logo_inicio_sesion' />
+            <h1><FormattedMessage id="Description"/></h1>
+          </row>
+      </div>
 
-      <img src={LogoLibro} alt="Logo" className='logo_inicio_sesion' />
-      <h5 className='texto_inicio_sesion'>Tu libreria aliada </h5>
-      <form onSubmit={handleSubmit}>
-
-        <Input type={'text'} id={'usuario'} text={'usuario'} value={user} onChange={(e) => setUser(e.target.value)} />
-        {errors.user && <span>{errors.user}</span>}
-
-        <Input type={'password'} id={'password'} text={'password'} value={password} onChange={(e) => setPassword(e.target.value)} />
-        {errors.user && <span>{errors.user}</span>}
-
-        <Button name={"form__account"} id={'bt'} type="submit" text={'Iniciar sesión'} />
-
+      <div className='container'>
         
-        <div className="form__help">
-          <Link to="/signup">No te has registrado? Hazlo</Link>
 
-        </div>
+        <form onSubmit={handleSubmit}>
 
-      </form>
+        <h3><FormattedMessage id="Libreria"/></h3>
+
+          <Input type={'text'} id={'usuario'} text={usuario} value={user} onChange={(e) => setUser(e.target.value)} />
+          {errors.user && <span>{errors.user}</span>}
+
+
+
+          <Input type={'password'} id={'password'} text={pass} value={password} onChange={(e) => setPassword(e.target.value)} />
+          {errors.user && <span>{errors.user}</span>}
+
+          <Button name={"form__account"} id={'bt'} type="submit" text={<FormattedMessage id="Session"/>} />
+
+          
+          <div className="form__help">
+            <Link to="/signup"><FormattedMessage id="Registro"/></Link>
+
+          </div>
+
+        </form>
      
+      </div>
     </div>
     </div>
   )

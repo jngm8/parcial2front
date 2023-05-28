@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+1-install dependencies with npm install
+2-install axios with npm install axios
+3-install react-int with npm install react-intl --save
+4- Run the backend with npm run and in the main.ts add the app.enableCors(); line in order to enable the connection
+5- Change the port of the banckend to 8000 in the main.ts file
+5- Run the frontend with npm run
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Routes are found in the App.js file
+Login page is in /login
+Book cards are shown in the /libreria route
 
-## Available Scripts
+Solution
 
-In the project directory, you can run:
+The main pages are in the pages folder, where Login and Libreria are the principal or the parent components. Libreria 
+uses an state to save the information coming form the backend using axios, whose job is to bring all information from 
+the backend in res.data, and finally passing it to the libros state with setLibros function.
+Then, in the return, I put a parent container and then two child containers. The left container is for putting the cards, and the right container is to put the detail of the card once it is clicked on it. With libros.map, I loop all the books this variable has from the backend. In components, LibreriaCard is the child of Libreria, and there I pass all the props from Libreria and put it into a card for them to display. I put some styles of css and the cards are shown. For the detail when a card is clicked, I use the function handleClick and the state selected,useSelected. When a card is clicked, using axios I bring the data from the backend and put it into the setSelected state with the corresponding id, that is going to change depending of the selected card.
 
-### `npm start`
+For the login page, there is the Login page and two other components named input and button. For the login,I use states for the user, password and for errors. Then I use a validate function, and use the state variables to verify the inputs from the user. I use the sendData function to send to the backend a Post to verify the user and password. In the return I
+call the input and botton components to renderize them in the main login page. The register page is not done, but I put it to make it look more as a register page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+All the page is localized and for it I used the locales folder in two languages. English and Spanish. All the words that were "quemadas" are in both languages. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Jairo Nicolás Gómez - 202020414

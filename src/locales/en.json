@@ -1,3 +1,21 @@
 {
-    "titulo":"destinations"
+    "Title":"Title",
+    "ISBN":"ISBN",
+    "Author":"Author",
+    "Publisher":"Publisher",
+    "Gender":"Gender",
+    "Year":"Year",
+    "Price":"Price",
+    "Available":"Available Online",
+    "Summary":"Summary",
+
+    "Libreria":"Your allied bookstore",
+    "User":"User",
+    "Password":"Password",
+    "Session": "Login",
+    "Registro":"Registor Now!",
+    "Description" : "Find the book that you werent even serching for"
+
+
+
 }

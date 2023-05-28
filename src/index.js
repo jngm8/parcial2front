@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {IntlProvider} from "react-intl";
 import localeEs from "./locales/es.json";
 import localeEn from "./locales/en.json";
+
 
 
 let messages = null;

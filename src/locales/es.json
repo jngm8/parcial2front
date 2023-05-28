@@ -1,3 +1,20 @@
 {
-    "titulo":"destinos"
+    "Titulo":"Titulo",
+    "ISBN":"ISBN",
+    "Author":"Autor",
+    "Publisher":"Publicador",
+    "Gender":"Genero",
+    "Year":"Año",
+    "Price":"Precio",
+    "Available":"Disponible en Linea",
+    "Summary":"Resumen",
+
+    
+    "Libreria":"Tu libreria aliada",
+    "User":"Usuario",
+    "Password":"Contraseña",
+    "Session": "Iniciar Sesión",
+    "Registro":"Registrate Ahora!",
+    "Description" : "Encuentra hasta el libro que no estabas buscando"
+
 }
